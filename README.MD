@@ -1,6 +1,6 @@
 # iot-lamp
 
-## Opis
+## Wstęp
 Projekt to lampka sterowana poprzez stronę internetową. Podstawowe funkcje:
 - czujnik jasności otoczenia
 - termometr
@@ -24,8 +24,14 @@ Założeniem jest, aby lampka była dostępna z poziomu internetu. Tym samym pot
 Za komunikację w czasie rzeczywistym odpowiada `socket.io`
 
 ## Wykorzystany mikrokontroler
-
 Przy wyborze mikrokontrolera, główna uwaga padła na stosunek ceny do możliwości. Koniecznym była możliwość połączenia z internetem, odpowiednią ilość złącz GPIO oraz wsparcie protokołu I2C. Po odrzuceniu Raspberry, ze względu na chęć postawienia sobie wyzwania w postaci mikrokontrolera, wybór padł na płytkę NodeMCU v3. Zbudowana jest ona na podstawie mikrokontrolera Espressif ESP8266EX.
+
+![Mikrokontroler ESP8266](https://botland.com.pl/img/art/inne/08241_8.jpg)
+Zdjęcie ze sklepu (Botland)[https://botland.com.pl]
+
+## Środkowisko programistyczne
+Projekt został zrobiony przy pomocy edytora Visual Studio Code oraz środowiska PlatformIO.
+Kod na urzędzenie był pisany we frameworku Arduino. 
 
 ## Wykorzystane czujniki
 - czujnik natężenia światła `TEMT6000`
@@ -55,6 +61,9 @@ Schemat wykonany przy pomocy [circuit-diagram.org](https://www.circuit-diagram.o
 
 #### Połączenie żarówki `H7` z mikrokontrolerem
 Żarówka nie jest połączona bezpośrednio z mikrokontrolerem, lecz poprzez, wcześniej opisany, sterownik PWM. Mikrokontroler operuje na napięciu 3.3V, a lampka na napięciu 12V.
+
+## Programowanie czujników oraz aktuatorów
+
 
 ## Wnioski
 
