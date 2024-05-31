@@ -33,8 +33,19 @@ Kod na urządzenie był pisany we frameworku Arduino.
 
 ## Wykorzystane czujniki
 - czujnik natężenia światła `TEMT6000`
+![Czujnik TEMT6000]()
+![Specyfikacja TEMT6000]()
+Zdjęcie i specyfikacja pochodzą z aukcji w serwisie [Allegro](https://allegro.pl)
+
 - czujnik temperatury `DS18B20`
+![Czujnik DS18B20]()
+![Specyfikacja DS18B20]()
+Zdjęcie i specyfikacja pochodzą z aukcji w serwisie [Allegro](https://allegro.pl)
+
 - czujnik ruchu PIR `HC-SR505`
+![Czujnik HC-SR505]()
+![Specyfikacja HC-SR505]()
+Zdjęcie i specyfikacja pochodzą z aukcji w serwisie [Allegro](https://allegro.pl)
 
 ## Wykorzystane aktuatory:
 - serwo `g90` *do regulacji kąta świecenia*
@@ -46,7 +57,7 @@ Użyty został zasilacz 5V 5A. Równolegle podłączone zostały:
 - żarówka `H7` *(przy pomocy grubszych kabli)*, poprzez przetwornicę `MT3608` Step-UP 5-28V 2A
 
 ## Schemat lampki
-![Schemat lampki](https://github.com/azizko1337/iot-lamp/blob/main/docs/circuit-colored.png?raw=true)
+![Schemat lampki](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/circuit-colored.png?raw=true)
 Schemat wykonany przy pomocy [circuit-diagram.org](https://www.circuit-diagram.org/)
 
 #### Legenda:
