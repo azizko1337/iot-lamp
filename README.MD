@@ -27,7 +27,7 @@ Za komunikację w czasie rzeczywistym odpowiada `socket.io`
 Przy wyborze mikrokontrolera, główna uwaga padła na stosunek ceny do możliwości. Koniecznym była możliwość połączenia z internetem, odpowiednią ilość złącz GPIO oraz wsparcie protokołu I2C. Po odrzuceniu Raspberry, ze względu na chęć postawienia sobie wyzwania w postaci mikrokontrolera, wybór padł na płytkę NodeMCU v3. Zbudowana jest ona na podstawie mikrokontrolera Espressif ESP8266EX.
 
 ![Mikrokontroler ESP8266](https://botland.com.pl/img/art/inne/08241_8.jpg)
-Zdjęcie ze sklepu (Botland)[https://botland.com.pl]
+Zdjęcie ze sklepu [Botland](https://botland.com.pl)
 
 ## Środkowisko programistyczne
 Projekt został zrobiony przy pomocy edytora Visual Studio Code oraz środowiska PlatformIO.
