@@ -24,7 +24,7 @@ Za komunikację w czasie rzeczywistym odpowiada `socket.io`
 ## Wykorzystany mikrokontroler
 Przy wyborze mikrokontrolera, główna uwaga padła na stosunek ceny do możliwości. Koniecznym była możliwość połączenia z internetem, odpowiednią ilość złącz GPIO oraz wsparcie protokołu I2C. Po odrzuceniu Raspberry, ze względu na chęć postawienia sobie wyzwania w postaci mikrokontrolera, wybór padł na płytkę NodeMCU v3. Zbudowana jest ona na podstawie mikrokontrolera Espressif ESP8266EX.
 
-![Mikrokontroler ESP8266](https://botland.com.pl/img/art/inne/08241_8.jpg)
+![Mikrokontroler ESP8266](https://botland.com.pl/img/art/inne/08241_8.jpg)\
 Zdjęcie ze sklepu [Botland](https://botland.com.pl)
 
 ## Środkowisko programistyczne
@@ -33,29 +33,29 @@ Kod na urządzenie był pisany we frameworku Arduino.
 
 ## Wykorzystane czujniki
 - czujnik natężenia światła `TEMT6000`
-![Czujnik TEMT6000](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/temt6000.png?raw=true)
-![Specyfikacja TEMT6000](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/temt6000spec.png?raw=true)
+![Czujnik TEMT6000](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/temt6000.png?raw=true)\
+![Specyfikacja TEMT6000](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/temt6000spec.png?raw=true)\
 Zdjęcie i specyfikacja pochodzą z aukcji w serwisie [Allegro](https://allegro.pl)
 
 - czujnik temperatury `DS18B20`
-![Czujnik DS18B20](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/ds18b20.png?raw=true)
-![Specyfikacja DS18B20](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/ds18b20spec.png?raw=true)
+![Czujnik DS18B20](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/ds18b20.png?raw=true)\
+![Specyfikacja DS18B20](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/ds18b20spec.png?raw=true)\
 Zdjęcie i specyfikacja pochodzą z aukcji w serwisie [Allegro](https://allegro.pl)
 
 - czujnik ruchu PIR `HC-SR505`
-![Czujnik HC-SR505](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/hcsr505.png?raw=true)
-![Specyfikacja HC-SR505](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/hcsr505spec.png?raw=true)
+![Czujnik HC-SR505](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/hcsr505.png?raw=true)\
+![Specyfikacja HC-SR505](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/hcsr505spec.png?raw=true)\
 Zdjęcie i specyfikacja pochodzą z aukcji w serwisie [Allegro](https://allegro.pl)
 
 ## Wykorzystane aktuatory:
 - serwo `g90` *do regulacji kąta świecenia*
-![Serwo g90](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/servog90.png?raw=true)
-![Specyfikacja serwa g90](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/servog90spec.png?raw=true)
+![Serwo g90](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/servog90.png?raw=true)\
+![Specyfikacja serwa g90](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/servog90spec.png?raw=true)\
 Zdjęcie i specyfikacja pochodzą z aukcji w serwisie [Allegro](https://allegro.pl)
 
 - sterownik PWM MOSFET 3.3V/5V | 15A 5-36V *do regulacji mocy świecenia*
-![Sterownik PWM](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/pwm.png?raw=true)
-![Specyfikacja sterownika PWM](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/pwmspec.png?raw=true)
+![Sterownik PWM](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/pwm.png?raw=true)\
+![Specyfikacja sterownika PWM](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/pwmspec.png?raw=true)\
 Zdjęcie i specyfikacja pochodzą z aukcji w serwisie [Allegro](https://allegro.pl)
 
 ## Sekcja zasilania lampki
@@ -64,16 +64,16 @@ Użyty został zasilacz 5V 5A. Równolegle podłączone zostały:
 - żarówka `H7` *(przy pomocy grubszych kabli)*, poprzez przetwornicę `MT3608` Step-UP 5-28V 2A
 
 ###### Zasilacz
-![Zasilacz](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/powersupply.png?raw=true)
+![Zasilacz](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/powersupply.png?raw=true)\
 Zdjęcie i specyfikacja zasilacza pochodzą z aukcji w serwisie [Allegro](https://allegro.pl)
 
 ###### Przetwornica step-up (ustawiona na 5V -> 12V)
-![Przetwornica step-up](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/stepup.png?raw=true)
-![Przetwornica step-up](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/stepupspec.png?raw=true)
+![Przetwornica step-up](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/stepup.png?raw=true)\
+![Przetwornica step-up](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/stepupspec.png?raw=true)\
 Zdjęcie i specyfikacja zasilacza pochodzą z aukcji w serwisie [Allegro](https://allegro.pl)
 
 ## Schemat lampki
-![Schemat lampki](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/circuit-colored.png?raw=true)
+![Schemat lampki](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/circuit-colored.png?raw=true)\
 Schemat wykonany przy pomocy [circuit-diagram.org](https://www.circuit-diagram.org/)
 
 #### Legenda:
