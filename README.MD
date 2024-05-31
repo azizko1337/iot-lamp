@@ -17,9 +17,9 @@ Kolejnym założeniem jest, aby elementem święcącym w lampce, była żarówka
 ## Architektura systemu
 Założeniem jest, aby lampka była dostępna z poziomu internetu. Tym samym potrzebny jest centralny serwer dostępny w internecie. Do serwera muszą się dołączać lampki oraz użytkownicy. Stąd pełna aplikacja zawiera:
 
--klient (strona WWW - `Next.js`)
--serwer (aplikacja - `Express.js`, baza danych `SQLite`)
--urządzenie (mikrokontroler `ESP8266`)
+- klient (strona WWW - `Next.js`)
+- serwer (aplikacja - `Express.js`, baza danych `SQLite`)
+- urządzenie (mikrokontroler `ESP8266`)
 
 Za komunikację w czasie rzeczywistym odpowiada `socket.io`
 
@@ -43,6 +43,9 @@ Użyty został zasilacz 5V 5A. Równolegle podłaczone zostały:
 
 
 ## Schemat lampki
+
+![Schemat lampki](https://github.com/azizko1337/iot-lamp/blob/main/docs/circuit-colored.png?raw=true)
+Schemat wykonany przy pomocy [circuit-diagram.org](https://www.circuit-diagram.org/)
 
 #### Legenda:
 - kolor czerwony - sekcja zasilania lampki (linie 5V i 12V)
