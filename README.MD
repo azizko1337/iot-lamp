@@ -63,7 +63,7 @@ Użyty został zasilacz 5V 5A. Równolegle podłączone zostały:
 - mikrokontroler `ESP8266` (bezpośrednio do 5V)
 - żarówka `H7` *(przy pomocy grubszych kabli)*, poprzez przetwornicę `MT3608` Step-UP 5-28V 2A
 
-###### Zasilacz\
+###### Zasilacz
 ![Zasilacz](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/powersupply.png?raw=true)\
 Zdjęcie i specyfikacja zasilacza pochodzą z aukcji w serwisie [Allegro](https://allegro.pl)
 
@@ -72,7 +72,7 @@ Zdjęcie i specyfikacja zasilacza pochodzą z aukcji w serwisie [Allegro](https:
 ![Przetwornica step-up](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/stepupspec.png?raw=true)\
 Zdjęcie i specyfikacja zasilacza pochodzą z aukcji w serwisie [Allegro](https://allegro.pl)
 
-## Schemat lampki\
+## Schemat lampki
 ![Schemat lampki](https://github.com/azizko1337/iot-lamp/blob/main/docs/images/circuit-colored.png?raw=true)\
 Schemat wykonany przy pomocy [circuit-diagram.org](https://www.circuit-diagram.org/)
 
@@ -123,3 +123,4 @@ Urządzenie swoje działanie zawdzięcza wielu gotowym bibliotekom.
 ## Źródła informacji
 - [ESP8266 - jak zacząć?](https://forbot.pl/blog/leksykon/esp8266)
 - [WiFiManager with ESP8266](https://randomnerdtutorials.com/wifimanager-with-esp8266-autoconnect-custom-parameter-and-manage-your-ssid-and-password/)
+- Reszta informacji potrzebnych do wykonania projektu została zaczerpnięta z zajęć oraz dokumentacji w/w bibliotek.
