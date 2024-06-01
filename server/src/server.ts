@@ -12,6 +12,9 @@ import initializeDb from "./db/initializeDb";
 
 import type SocketData from "./types/SocketData";
 
+import config from "../config";
+const PORT = config.PORT;
+
 app.use(cors());
 
 initializeDb().then(() => {
@@ -100,7 +103,7 @@ initializeDb().then(() => {
     });
   });
 
-  server.listen(5000, () => {
-    console.log("listening on *:5000");
+  server.listen(PORT, () => {
+    console.log(`Listening on *:${PORT}`);
   });
 });

@@ -27,8 +27,8 @@
 #define USE_SERIAL Serial
 
 //lamp configs
-// const String server = "192.168.0.104";
-const String server = "apilamp.azalupka.cc";
+const String server = "srv23.mikr.us"; //"192.168.0.104";
+const int port = 20374;
 char lampCode[38] = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"; //uuid4;
 struct {
     int brightness = A0;
@@ -112,7 +112,7 @@ void setup() {
     }
 
     //socketio connection and event handler
-    socketIO.begin(server, 5000, "/socket.io/?EIO=4"); //TODOODODDDDDDDDDDDDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+    socketIO.begin(server, port, "/socket.io/?EIO=4"); //TODOODODDDDDDDDDDDDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
     socketIO.onEvent(socketIOEvent);
     while(!socketIO.isConnected()) {
         socketIO.loop();
@@ -142,6 +142,8 @@ void setup() {
     
     state.led = 0; //connected, turn off led
     updateOutputs();
+
+    USE_SERIAL.println("CONNECTED, GOING TO LOOP!");
 }
 
 void loop() {
