@@ -49,22 +49,22 @@ function LampConf() {
   }, [lampCode]);
 
   useEffect(() => {
-    socket.on("brightness", (value) => {
+    socket.on("brightness", (value: string | number) => {
       setBrightness(Math.round((+value * 100) / 1024));
     });
-    socket.on("temperature", (value) => {
+    socket.on("temperature", (value: string | number) => {
       setTemperature(Math.round(+value * 100) / 100);
     });
-    socket.on("motion", (value) => {
+    socket.on("motion", (value: string | number) => {
       setMotion(+value === 1);
     });
-    socket.on("angle", (value) => {
+    socket.on("angle", (value: string | number) => {
       setAngle(+value);
     });
-    socket.on("power", (value) => {
+    socket.on("power", (value: string | number) => {
       setPower(+value);
     });
-    socket.on("addconnection", (value) => {
+    socket.on("addconnection", (value: string | number) => {
       setLoading(false);
       value = +value;
       if (value === 1) {

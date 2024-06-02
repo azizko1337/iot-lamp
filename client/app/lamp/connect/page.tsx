@@ -19,7 +19,7 @@ function ConnectLamp() {
   const [feedback, setFeedback] = useState("");
 
   useEffect(() => {
-    socket.on("generateLampCode", async ({ lampCode }) => {
+    socket.on("generateLampCode", async ({ lampCode }: {lampCode: string}) => {
       setLampCode(lampCode);
       saveLampCode(lampCode);
 
