@@ -59,10 +59,10 @@ function LampConf() {
       setMotion(+value === 1);
     });
     socket.on("angle", (value: string | number) => {
-      setAngle(+value);
+      setAngle(180 - +value);
     });
     socket.on("power", (value: string | number) => {
-      setPower(+value);
+      setPower(+value / 2.55);
     });
     socket.on("addconnection", (value: string | number) => {
       setLoading(false);
