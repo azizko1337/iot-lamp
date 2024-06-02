@@ -29,6 +29,8 @@
 //lamp configs
 const String server = "srv23.mikr.us"; //"192.168.0.104";
 const int port = 20374;
+// const String server = "apilamp.azalupka.cc"; //"192.168.0.104";
+// const int port = 80;
 char lampCode[38] = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"; //uuid4;
 bool didShaked = false;
 struct {
@@ -72,6 +74,8 @@ void emit(String event, String value);
 void eventHandler(uint8_t * payload);
 
 void setup() {
+    pinMode(LED_BUILTIN, OUTPUT);
+    digitalWrite(LED_BUILTIN, HIGH);    
     //brightness sensor
     pinMode(PINS.brightness, INPUT);
     //temperature sensor ds18b20
@@ -154,9 +158,9 @@ void loop() {
     readSensors();
     updateOutputs();
 
-    if(!didShaked && socketIO.isConnected()){
-        emit("addconnection", lampCode); 
-    }
+    // if(!didShaked && socketIO.isConnected()){
+    //     emit("addconnection", lampCode); 
+    // }
 
     //handle reset button
     if(state.button){

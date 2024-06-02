@@ -21,6 +21,7 @@ import { buttonVariants } from "@/components/ui/button";
 
 import readLampCodes from "@/lib/readLampCodes";
 import removeLampCode from "@/lib/removeLampCode";
+import getLampNameBrowser from "@/lib/getLampName";
 
 function LampList() {
   const [loading, setLoading] = useState(true);
@@ -80,9 +81,10 @@ function LampList() {
                 )}
               </div>
               <div>
-                <AlertTitle>{lampCode}</AlertTitle>
+                <AlertTitle>{getLampNameBrowser(lampCode)}</AlertTitle>
                 <AlertDescription>Click to manage this lamp</AlertDescription>
               </div>
+              <div className="grow"></div>
               <div>
                 <FaTrash
                   onClick={(e) => handleRemoveLamp(e, lampCode)}

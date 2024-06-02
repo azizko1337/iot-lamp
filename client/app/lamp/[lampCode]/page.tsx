@@ -15,6 +15,7 @@ import {
 import { FaThermometerHalf } from "react-icons/fa";
 import { MdBrightness7 } from "react-icons/md";
 import { TbUfo, TbUfoOff } from "react-icons/tb";
+import { MdModeEdit } from "react-icons/md";
 import Throbber from "@/components/ui/throbber";
 import { buttonVariants } from "@/components/ui/button";
 import { Button } from "@/components/ui/button";
@@ -24,6 +25,8 @@ import socket from "@/lib/socket";
 import readLampCodes from "@/lib/readLampCodes";
 import saveLampCode from "@/lib/saveLampCode";
 import copyToClipboard from "@/lib/copyToClipboard";
+import getLampNameBrowser from "@/lib/getLampName";
+import setLampNameBrowser from "@/lib/setLampName";
 
 function LampConf() {
   const { lampCode }: { lampCode: string } = useParams();
@@ -40,11 +43,16 @@ function LampConf() {
   const [angle, setAngle] = useState(0);
   const [power, setPower] = useState(0);
 
+  const [showChangeName, setShowChangeName] = useState(false);
+  const [lampNameInput, setLampNameInput] = useState(lampCode);
+
   useEffect(() => {
     readLampCodes().then((lampCodes) => {
       if (!lampCodes.includes(lampCode as string)) {
         saveLampCode(lampCode as string);
       }
+      setLampName(getLampNameBrowser(lampCode));
+      setLampNameInput(getLampNameBrowser(lampCode));
     });
   }, [lampCode]);
 
@@ -59,10 +67,10 @@ function LampConf() {
       setMotion(+value === 1);
     });
     socket.on("angle", (value: string | number) => {
-      setAngle(180 - +value);
+      setAngle(Math.round(180 - +value));
     });
     socket.on("power", (value: string | number) => {
-      setPower(+value / 2.55);
+      setPower(Math.round(+value / 2.55));
     });
     socket.on("addconnection", (value: string | number) => {
       setLoading(false);
@@ -98,6 +106,12 @@ function LampConf() {
     }
   }
 
+  function setName() {
+    setShowChangeName(false);
+    setLampNameBrowser(lampCode, lampNameInput);
+    setLampName(lampNameInput);
+  }
+
   if (loading) return <Throbber />;
 
   if (!lampConnected) {
@@ -122,12 +136,32 @@ function LampConf() {
   return (
     <>
       <div className="flex flex-col gap-4">
-        <div>
-          <TypographyH3>{lampName}</TypographyH3>
-          <div className="flex">
-            <Input value={lampName} />
+        <div className="flex flex-col gap-2">
+          {showChangeName ? (
+            <div className="flex">
+              <Input
+                value={lampNameInput}
+                onChange={(e) => setLampNameInput(e.target.value)}
+              />
+              <Button onClick={setName} className="w-22">
+                Set name
+              </Button>
+            </div>
+          ) : (
+            <div
+              className="cursor-pointer"
+              onClick={() => setShowChangeName(true)}
+            >
+              <TypographyH3>
+                {lampName}
+                {lampName.length >= 36 && <MdModeEdit size={20} />}
+              </TypographyH3>
+            </div>
+          )}
+
+          <div className="flex justify-end">
             <Button onClick={handleCopyCode} className="w-22">
-              Copy code
+              Copy lamp code
             </Button>
           </div>
           <TypographyP>{feedback}</TypographyP>

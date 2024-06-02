@@ -24,7 +24,7 @@ function ConnectLamp() {
       saveLampCode(lampCode);
 
       try {
-        await copyToClipboard("I'm going to the clipboard !");
+        await copyToClipboard(lampCode);
         setFeedback("Code has been copied to clipboard!");
       } catch (error) {
         setFeedback(

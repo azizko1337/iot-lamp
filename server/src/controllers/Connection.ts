@@ -3,6 +3,13 @@ import openDb from "../db/openDb";
 class Connection {
   static async add(socketId: string, lampCode: string, isDevice = false) {
     const db = await openDb();
+
+    //insert lamp if not connected already
+    const lamp = await db.get("SELECT * FROM lamps WHERE lampCode = ?", [lampCode]);
+    if(!lamp){
+      await db.run("INSERT INTO lamps (lampCode) VALUES (?)", [lampCode]);
+    }
+
     try {
       await db.run(
         `INSERT INTO sockets (socketId, lampCode, isDevice) VALUES (?, ?, ?)`,
