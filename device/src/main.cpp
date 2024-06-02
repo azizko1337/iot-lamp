@@ -30,6 +30,7 @@
 const String server = "srv23.mikr.us"; //"192.168.0.104";
 const int port = 20374;
 char lampCode[38] = "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"; //uuid4;
+bool didShaked = false;
 struct {
     int brightness = A0;
     int temperature = D1;
@@ -111,19 +112,7 @@ void setup() {
         ESP.restart();
     }
 
-    //socketio connection and event handler
-    socketIO.begin(server, port, "/socket.io/?EIO=4"); //TODOODODDDDDDDDDDDDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-    socketIO.onEvent(socketIOEvent);
-    while(!socketIO.isConnected()) {
-        socketIO.loop();
-        
-        //feature of reset
-        readSensors();
-        if(state.button){
-            ESP.eraseConfig();
-            ESP.restart();
-        }
-    }
+    
 
     //read lampCode from EEPROM or custom value
     if(custom_lampCode.getValue()[0] != '\0'){
@@ -139,6 +128,20 @@ void setup() {
     EEPROM.begin(37);
     EEPROM.get(0, lampCode);
     EEPROM.end();
+
+    //socketio connection and event handler
+    socketIO.begin(server, port, "/socket.io/?EIO=4"); //TODOODODDDDDDDDDDDDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+    socketIO.onEvent(socketIOEvent);
+    while(!socketIO.isConnected()) {
+        socketIO.loop();
+        
+        //feature of reset
+        readSensors();
+        if(state.button){
+            ESP.eraseConfig();
+            ESP.restart();
+        }
+    }
     
     state.led = 0; //connected, turn off led
     updateOutputs();
@@ -150,6 +153,10 @@ void loop() {
     socketIO.loop();
     readSensors();
     updateOutputs();
+
+    if(!didShaked && socketIO.isConnected()){
+        emit("addconnection", lampCode); 
+    }
 
     //handle reset button
     if(state.button){
@@ -172,6 +179,7 @@ void socketIOEvent(socketIOmessageType_t type, uint8_t * payload, size_t length)
     switch(type) {
         case sIOtype_DISCONNECT:
             USE_SERIAL.printf("[IOc] Disconnected!\n");
+            didShaked = false;
             break;
         case sIOtype_CONNECT:
             USE_SERIAL.printf("[IOc] Connected to url: %s\n", payload);
@@ -300,5 +308,8 @@ void eventHandler(uint8_t * payload){
     }
     if (strcmp(e.as<String>().c_str(), "angle") == 0){
         state.angle = v.as<int>();
+    }
+    if (strcmp(e.as<String>().c_str(), "addconnection") == 0){
+        didShaked = true;
     }
 }
