@@ -82,7 +82,13 @@ function LampConf() {
       }
     });
 
-    socket.emit("addconnection", lampCode);
+    socket.on("disconnect", () => {
+      setLampConnected(false);
+    });
+
+    socket.on("connect", () => {
+      socket.emit("addconnection", lampCode);
+    });
 
     return () => {
       socket.off("brightness");

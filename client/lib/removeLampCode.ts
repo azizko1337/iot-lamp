@@ -13,6 +13,7 @@ async function removeLampCode(lampCode: string): Promise<void> {
   );
 
   window.localStorage.setItem("lampCodes", JSON.stringify(lampCodes));
+  window.localStorage?.removeItem(lampCode);
 }
 
 export default removeLampCode;

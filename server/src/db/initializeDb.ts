@@ -8,7 +8,7 @@ async function initializeDb() {
             brightness INTEGER DEFAULT 0,
             temperature INTEGER DEFAULT 0,
             motion INTEGER DEFAULT 0,
-            angle INTEGER DEFAULT 0,
+            angle INTEGER DEFAULT 90,
             power INTEGER DEFAULT 0
         )
     `);
