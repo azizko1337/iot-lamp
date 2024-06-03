@@ -95,7 +95,8 @@ initializeDb().then(() => {
           await Connection.getLampCode(socket.id)
         );
         for (const socketId of sockets) {
-          io.to(socketId).emit("addconnection", false);
+          if (socketId != socket.id)
+            io.to(socketId).emit("addconnection", false);
         }
       }
 

@@ -5,8 +5,10 @@ class Connection {
     const db = await openDb();
 
     //insert lamp if not connected already
-    const lamp = await db.get("SELECT * FROM lamps WHERE lampCode = ?", [lampCode]);
-    if(!lamp){
+    const lamp = await db.get("SELECT * FROM lamps WHERE lampCode = ?", [
+      lampCode,
+    ]);
+    if (!lamp) {
       await db.run("INSERT INTO lamps (lampCode) VALUES (?)", [lampCode]);
     }
 
@@ -47,8 +49,8 @@ class Connection {
       `SELECT lampCode FROM sockets WHERE socketId = ?`,
       socketId
     );
-    if (!result) return "";
     await db.close();
+    if (!result) return "";
     return result.lampCode;
   }
   static async isDevice(socketId: string): Promise<boolean> {
@@ -57,8 +59,8 @@ class Connection {
       `SELECT isDevice FROM sockets WHERE socketId = ?`,
       socketId
     );
-    if (!result) return false;
     await db.close();
+    if (!result) return false;
     return result.isDevice;
   }
 }

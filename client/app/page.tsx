@@ -19,9 +19,9 @@ function Index() {
   useEffect(() => {
     readLampCodes().then((lampCodes) => {
       if (lampCodes.length > 0) {
-        setLoading(false);
         router.push("/lamp/list");
       }
+      setLoading(false);
     });
   }, [router]);
 
