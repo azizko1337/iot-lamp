@@ -90,6 +90,8 @@ function LampConf() {
       socket.emit("addconnection", lampCode);
     });
 
+    socket.emit("addconnection", lampCode);
+
     return () => {
       socket.off("brightness");
       socket.off("temperature");
