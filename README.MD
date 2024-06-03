@@ -16,6 +16,12 @@ Konieczna jest też osobna dioda LED, sygnalizująca stan lampki oraz przycisk s
 
 Kolejnym założeniem jest, aby elementem święcącym w lampce, była żarówka H7. Trudnością jest fakt, że potrzebne jest jej napięcie 12V, podczas gdy mikrokontroler potrzebuje dużo niższe napięcie (3.3V lub 5V). Rozwiązanie zasilania w lampce zostanie opisane w części konstrukcji lampki.
 
+## Prezentacja efektu końcowego
+
+Film pozwala zrozumieć zamysł projektu.
+
+[![Zobacz film](https://img.youtube.com/vi/iD7eQsk9eG4/hqdefault.jpg)](https://youtu.be/iD7eQsk9eG4)
+
 ## Architektura systemu
 
 Założeniem jest, aby lampka była dostępna z poziomu internetu. Tym samym potrzebny jest centralny serwer dostępny w internecie. Do serwera muszą się dołączać lampki oraz użytkownicy. Stąd pełna aplikacja zawiera:
@@ -23,7 +29,8 @@ Założeniem jest, aby lampka była dostępna z poziomu internetu. Tym samym pot
 - klient (strona WWW - `Next.js`)
 - serwer (aplikacja - `Express.js`, baza danych `SQLite`)
 - urządzenie (mikrokontroler `ESP8266`)
-  Za komunikację w czasie rzeczywistym odpowiada `socket.io`
+
+##### Za komunikację w czasie rzeczywistym odpowiada `socket.io`
 
 ## Środkowisko programistyczne
 
