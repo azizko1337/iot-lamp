@@ -12,6 +12,8 @@ async function initializeDb() {
             power INTEGER DEFAULT 0
         )
     `);
+
+  await db.exec(`DROP TABLE IF EXISTS sockets`);
   await db.exec(`
         CREATE TABLE IF NOT EXISTS sockets (
             socketId TEXT PRIMARY KEY,

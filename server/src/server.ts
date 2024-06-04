@@ -69,7 +69,9 @@ initializeDb().then(() => {
         (event) => io.to(socket.id).emit(event, lampState[event])
       );
 
-      io.to(socket.id).emit("addconnection", await Lamp.isConnected(lampCode));
+      const isLampConnected = await Lamp.isConnected(lampCode);
+
+      io.to(socket.id).emit("addconnection", isLampConnected);
     });
 
     //send infos
@@ -88,7 +90,7 @@ initializeDb().then(() => {
       }
     );
 
-    socket.on("disconnect", async (reason) => {
+    socket.on("disconnecting", async (reason) => {
       //if device disconnects, inform all clients
       if (await Connection.isDevice(socket.id)) {
         const sockets = await Connection.getByCode(

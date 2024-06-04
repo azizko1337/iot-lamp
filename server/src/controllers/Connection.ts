@@ -5,11 +5,13 @@ class Connection {
     const db = await openDb();
 
     //insert lamp if not connected already
-    const lamp = await db.get("SELECT * FROM lamps WHERE lampCode = ?", [
-      lampCode,
-    ]);
-    if (!lamp) {
-      await db.run("INSERT INTO lamps (lampCode) VALUES (?)", [lampCode]);
+    if (isDevice) {
+      const lamp = await db.get("SELECT * FROM lamps WHERE lampCode = ?", [
+        lampCode,
+      ]);
+      if (!lamp) {
+        await db.run("INSERT INTO lamps (lampCode) VALUES (?)", [lampCode]);
+      }
     }
 
     try {
@@ -30,6 +32,16 @@ class Connection {
     await db.close();
   }
   static async remove(socketId: string) {
+    if (await this.isDevice(socketId)) {
+      const lampCode = await this.getLampCode(socketId);
+      const db = await openDb();
+      await db.run(
+        `DELETE FROM sockets WHERE lampCode = ? AND isDevice = true`,
+        [lampCode]
+      );
+      await db.close();
+      return;
+    }
     const db = await openDb();
     await db.run(`DELETE FROM sockets WHERE socketId = ?`, socketId);
     await db.close();
