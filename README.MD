@@ -1,5 +1,11 @@
 # iot-lamp
 
+## Prezentacja efektu końcowego
+
+Film pozwala zrozumieć zamysł projektu.
+
+[<img src="https://img.youtube.com/vi/iD7eQsk9eG4/hqdefault.jpg" alt="Zobacz film" width="360">](https://youtu.be/iD7eQsk9eG4)<br>
+
 ## Wstęp
 
 Projekt to lampka sterowana poprzez stronę internetową. Podstawowe funkcje:
@@ -15,12 +21,6 @@ Założeniem również było, aby lampka była konfgurowalna. Infrastruktura mus
 Konieczna jest też osobna dioda LED, sygnalizująca stan lampki oraz przycisk służący do resetu lampki.
 
 Kolejnym założeniem jest, aby elementem święcącym w lampce, była żarówka H7. Trudnością jest fakt, że potrzebne jest jej napięcie 12V, podczas gdy mikrokontroler potrzebuje dużo niższe napięcie (3.3V lub 5V). Rozwiązanie zasilania w lampce zostanie opisane w części konstrukcji lampki.
-
-## Prezentacja efektu końcowego
-
-Film pozwala zrozumieć zamysł projektu.
-
-[<img src="https://img.youtube.com/vi/iD7eQsk9eG4/hqdefault.jpg" alt="Zobacz film" width="360">](https://youtu.be/iD7eQsk9eG4)<br>
 
 ## Architektura systemu
 
